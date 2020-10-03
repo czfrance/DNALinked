@@ -23,8 +23,8 @@ public class AnalysisDNA {
      * Change these to change the tests to
      * use a different type
      */
-	private static final String strandType = "StringStrand";
-//    private static final String strandType = "LinkStrand";
+//	private static final String strandType = "StringStrand";
+    private static final String strandType = "LinkStrand";
 //	private static final String strandType = "StringBuilderStrand";
 
     private static final String ENZYME = "gaattc";
@@ -101,26 +101,22 @@ public class AnalysisDNA {
         System.out.println("-----");
         int power = 12;
         int spSize = (int) Math.pow(2, power);
+
         StringBuilder b = new StringBuilder("");
         for (int k = 0; k < spSize; k++) {
             b.append("c");
         }
+
         String splicee = b.toString();
         String copy = mySource;
 
+        //through each iteration of the loop,
         for (int i = 0; i < 10; i++) {
+            //increase the number of breaks by mySource
             mySource += copy;
             String results = strandSpliceBenchmark(ENZYME, splicee, strandType);
             System.out.println(results);
         }
-        // write code here that iterates 10 times
-        // in each iteration, the instance variable mySource, used in
-        // the strandSpliceBenchmark method, should be increased by copy.length()
-        // characters, by simply appending copy to myStrand each time the loop iterates
-        // This will increase the number of breaks in mySource linearly, by the number
-        // of breaks in copy
-
-
 
         System.exit(0);
     }
